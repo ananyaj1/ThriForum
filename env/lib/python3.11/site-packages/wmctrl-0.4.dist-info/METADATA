@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: wmctrl
+Version: 0.4
+Summary: A tool to programmatically control windows inside X
+Home-page: https://github.com/antocuni/wmctrl
+Author: Antonio Cuni
+Author-email: anto.cuni@gmail.com
+License: MIT
+License-File: LICENSE
+
+A tool to programmatically control windows inside X

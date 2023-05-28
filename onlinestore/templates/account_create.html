@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Thrift Forum</title>
+    </head>
+    <body>
+        <header>
+            <!-- not sure if these hrefs are correct-->
+            <a href = "/">ThriForum</a>
+            <a href="/accounts/login/">Login</a>
+        </header>
+        <!-- check action -->
+        <form action="/accounts/" target="/" method="post" enctype="multipart/form-data">
+            <label for="file">Upload a profile pic</label>
+            <input type="file" name="file" required/>
+            <label for="fullname">Name:</label>
+            <input type="text" name="fullname" required/>
+            <label for="username">Choose a unique username:</label>
+            <input type="text" name="username" required/>
+            <label for="email">Email:</label>
+            <input type="text" name="email" required/>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required/>
+            <input type="submit" name="signup" value="sign up"/>
+            <input type="hidden" name="operation" value="create"/>
+          </form>
+        <p>Have an account?</p>
+        <a href="/accounts/login/">Log in</a>
+    </body>
+</html>

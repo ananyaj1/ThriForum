@@ -1,0 +1,41 @@
+#!/bin/bash
+# onlinestoredb
+# Stop on errors
+set -Eeuo pipefail
+# Sanity check command line options
+usage() {
+  echo "Usage: $0 (create|destroy|reset|dump)"
+}
+if [ $# -ne 1 ]; then
+  usage
+  exit 1
+fi
+# Parse argument.  $1 is the first argument
+case $1 in
+  "create")
+    mkdir -p onlinestore/static
+    sqlite3 var/onlinestore.sqlite3 < sql/schema.sql
+    sqlite3 var/onlinestore.sqlite3 < sql/data.sql
+    cp sql/uploads/* onlinestore/static
+    ;;
+  "destroy")
+    rm -rf var/onlinestore.sqlite3 onlinestore/static
+    ;;
+  "reset")
+    rm -rf var/onlinestore.sqlite3 onlinestore/static
+    mkdir -p onlinestore/static
+    sqlite3 var/onlinestore.sqlite3 < sql/schema.sql
+    sqlite3 var/onlinestore.sqlite3 < sql/data.sql
+    cp sql/uploads/* onlinestore/static
+    ;;
+  "dump")
+    sqlite3 -batch -line var/onlinestore.sqlite3 'SELECT * FROM comments'
+    sqlite3 -batch -line var/onlinestore.sqlite3 'SELECT * FROM likes'
+    sqlite3 -batch -line var/onlinestore.sqlite3 'SELECT * FROM items'
+    sqlite3 -batch -line var/onlinestore.sqlite3 'SELECT * FROM users'
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac

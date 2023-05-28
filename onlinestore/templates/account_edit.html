@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Thrifting Forum</title>
+    </head>
+    <body>
+        <header>
+            <a href = "/">ThriForum</a>
+            <a href = "/explore/">explore</a>
+            <a href = "/users/{{logname}}/">{{logname}}</a>
+        </header>
+        {{logname}}
+        <img src = "{{url_for('static', filename=propic)}}" alt = "User"> <!-- wrong way to get image, need to fix-->
+        <!-- fix values -->
+        <form action="/accounts/?target=edit" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*"/>
+            <input type="text" name="fullname" value="{{fullname}}" required/>
+            <input type="text" name="email" value="{{email}}" required/>
+            <input type="submit" name="update" value="submit"/>
+            <input type="hidden" name="operation" value="edit_account"/>
+          </form>
+        <a href="/accounts/password/">Change password</a>
+        <a href="/accounts/delete/">Delete account</a>
+    </body>
+</html>

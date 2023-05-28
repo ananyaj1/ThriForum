@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title> Thrifting Forum </title>
+    </head>
+    <body>
+        <header>
+            <a href = "/">ThriForum</a>
+            <a href = "/explore/">explore</a>
+            <a href = "/users/{{logname}}/">{{logname}}</a>
+        </header>
+        {{logname}}
+        <form action="/accounts/"target="/accounts/create/" method="post" enctype="multipart/form-data">
+            <input type="submit" name="delete" value="confirm delete account"/>
+            <input type="hidden" name="operation" value="delete"/>
+          </form>
+    </body>
+</html>

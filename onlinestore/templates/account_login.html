@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Thrifting Forum</title>
+    </head>
+    <body>
+        <header>
+            <!-- not sure if these hrefs are correct-->
+            <a href = "/">ThriForum</a>
+            <a href="/accounts/login/">login</a>
+        </header>
+        <!-- check action -->
+        <form action="/accounts/?target=/" target="/" method="post" enctype="multipart/form-data">
+            <input type="text" name="username" required/>
+            <input type="password" name="password" required/>
+            <input type="submit" value="login"/>
+            <input type="hidden" name="operation" value="login"/>
+          </form>
+        <p>Don't have an account?</p>
+        <a href="/accounts/create/">Sign up</a>
+    </body>
+</html>

@@ -125,6 +125,7 @@ def get_item(itemid_url_slug):
       "comments": comments,
       "comments_url": "/api/v1/comments/?itemid={}".format(itemid_url_slug),
       "created": item['created'],
+      "available": item['available'],
       "imgUrl": "static/{}".format(item['filename']),
       "likes": {
         "lognameLikesThis": logname_likes_this,
@@ -191,6 +192,7 @@ def get_certain_posts():
     # cUrl = flask.request.url.replace('http://localhost', '')
     context = {
       "results": results,
+      "logname": logname,
       "url": cu_rl
     }
     return flask.jsonify(**context)

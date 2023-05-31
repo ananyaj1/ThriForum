@@ -8,12 +8,12 @@ VALUES
 ('userjonas', 'Joe Jonas', 'shorterthanmywife@gmail.com', 'pp.jpeg', 'sha512$a45ffdcc71884853a2cba9e6bc55e812$c739cef1aec45c6e345c8463136dc1ae2fe19963106cf748baf87c7102937aa96928aa1db7fe1d8da6bd343428ff3167f4500c8a61095fb771957b4367868fb8', (datetime('now')), 0),
 ('userallison', 'Allison Brie', 'communitychest@gmail.com', 'pp.jpeg', 'sha512$a45ffdcc71884853a2cba9e6bc55e812$c739cef1aec45c6e345c8463136dc1ae2fe19963106cf748baf87c7102937aa96928aa1db7fe1d8da6bd343428ff3167f4500c8a61095fb771957b4367868fb8', (datetime('now')), 0),
 ('usersophia', 'Sophia Vegara', 'highheels@yahoo.com', 'pp.jpeg', 'sha512$a45ffdcc71884853a2cba9e6bc55e812$c739cef1aec45c6e345c8463136dc1ae2fe19963106cf748baf87c7102937aa96928aa1db7fe1d8da6bd343428ff3167f4500c8a61095fb771957b4367868fb8', (datetime('now')), 0);
-INSERT INTO items(filename, owner, created)
+INSERT INTO items(filename, owner, available, created)
 VALUES 
-('jewel1.jpg', 'ananyaj', (datetime('now'))),
-('jewel2.jpg', 'usernatalie', (datetime('now'))),
-('jewel3.jpg', 'ananyaj', (datetime('now'))),
-('jewel4.jpg', 'ananyaj', (datetime('now')));
+('jewel1.jpg', 'ananyaj', 1, (datetime('now'))),
+('jewel2.jpg', 'usernatalie', 1, (datetime('now'))),
+('jewel3.jpg', 'ananyaj', 0, (datetime('now'))),
+('jewel4.jpg', 'ananyaj', 1, (datetime('now')));
 
  INSERT INTO comments(owner, itemid, text, created)
  VALUES

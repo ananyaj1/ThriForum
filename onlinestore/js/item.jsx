@@ -3,16 +3,18 @@ import Like from "./like";
 import moment from "moment";
 import Comment from "./comment";
 import Container from 'react-bootstrap/Container';
-import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 import Image from 'react-bootstrap/Image';
 import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 // The parameter of this function is an object with a string called url inside it.
 // url is a prop for the item component.
-export default function Item({ url }) {
+export default function Item({ url, handleCart }) {
   /* state variables using the useState hook */
 
   const [imgUrl, setImgUrl] = useState("");
@@ -27,6 +29,7 @@ export default function Item({ url }) {
   const [ownerShowUrl, setOwnerShowUrl] = useState("");
   const [newComment, setNewComment] = useState("");
   const [itemurl, setitemUrl] = useState("");
+  const [inCart, setInCart] = useState(false);
 
   useEffect(() => {
     // Declare a boolean flag that we can use to cancel the API request.
@@ -62,6 +65,7 @@ export default function Item({ url }) {
       // This is a cleanup function that runs whenever the item component
       // unmounts or re-renders. If a item is about to unmount or re-render, we
       // should avoid updating state.
+      console.log("test");
       ignoreStaleRequest = true;
     };
   }, [url]);
@@ -136,11 +140,18 @@ export default function Item({ url }) {
         }
     );
   }
+  function added() {
+    handleCart(itemid);
+    setInCart(true);
+  }
   // Render item image and item owner
   return (
     <Container>
         <Row className="justify-content-md-center">
             <Card className="w-25 h-50">
+              <Button disabled={inCart} onClick={added} className="m-3"> 
+              <FontAwesomeIcon icon={faCartShopping} /> {inCart ? "Added!" : "Add to Cart"}
+              </Button>
                 <Card.Img variant="top" src={imgUrl} alt="item-image"/>
                 <Card.Body>
                     <Row>

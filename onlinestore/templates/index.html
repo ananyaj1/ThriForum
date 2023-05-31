@@ -8,29 +8,6 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/item.css')}}" /> 
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container justify-content-between"> 
-                <div class="col">
-                    <a class="navbar-brand" href="/">
-                        <img src="{{ url_for('static', filename='thriforum.svg')}}" width="30" height="30" class="d-inline-block align-top" alt="">
-                        ThriForum
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                      <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="/"> Home <span class="sr-only"></span></a>
-                        <a class="nav-item nav-link" href="/explore/">Explore</a>
-                        <a class="nav-item nav-link" href="/users/{{logname}}/">{{logname}}</a>
-                      </div>
-                    </div>
-                </div>
-                <form action= "/accounts/logout" method="post" enctype="multipart/form-data">
-                    <input type="submit" name="logout" value="Logout" class="btn btn-danger"/>
-                </form>    
-            </div>
-        </nav>
           
         <div id="reactEntry">
             Loading ...

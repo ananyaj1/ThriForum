@@ -9,6 +9,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Badge from '@mui/material/Badge';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import Cart from "./cart";
+import { Routes, Route, useNavigate } from 'react-router-dom';
 // The parameter of this function is an object with a string called url inside it.
 // url is a prop for the item component.
 export default function Feed ({ url }) {
@@ -61,6 +63,11 @@ export default function Feed ({ url }) {
   }
 
   const u = `users/${logname}`;
+  const navigate = useNavigate();
+
+  const navigateCart = () => {
+    navigate('/cart');
+  }
   // Render item image and item owner
   return (
     <div className="home">
@@ -82,9 +89,12 @@ export default function Feed ({ url }) {
             </div>
           </Col>
           <Col>
-            <Badge badgeContent={cart.length} color="success">
-              <ShoppingCartCheckoutIcon color="action"/>
-            </Badge>
+            <Button className="btn-light" onClick={navigateCart}>
+              <Badge badgeContent={cart.length} color="success">
+                <ShoppingCartCheckoutIcon color="action"/>
+              </Badge>
+            </Button>
+            
           </Col>
           <Col>
             <Form action="/accounts/logout" method="post" encType="multipart/form-data">
@@ -100,7 +110,9 @@ export default function Feed ({ url }) {
               <Item url={item.url} key={item.itemid} handleCart={handleCart}/>
           ))}
       </div>
-     
+      <Routes>
+        <Route exact path="/cart" element={<Cart/>} />
+      </Routes>
     </div>
   );
 }

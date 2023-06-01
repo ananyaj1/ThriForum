@@ -7,6 +7,8 @@ import Navbar from "react-bootstrap/Navbar"
 import Image  from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Badge from '@mui/material/Badge';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 // The parameter of this function is an object with a string called url inside it.
 // url is a prop for the item component.
 export default function Feed ({ url }) {
@@ -46,9 +48,14 @@ export default function Feed ({ url }) {
     };
   }, [url]);
   // WHEN LIKE/UNLIKE BUTTON IS PRESSED, THIS IS HOW WE HANDLE IT
-  function handleCart(itemid) {
-    
-    setCart([...cart, itemid]);
+  function handleCart(itemid, name, imgurl) {
+    if(cart.some(item => item.itemid == itemid)) {
+      console.log('already in cart');
+      setCart(cart.filter(c => c.itemid !== itemid));
+    }
+    else {
+      setCart([...cart, {'itemid': itemid, 'name': name, 'imgurl': imgurl}]);
+    }
     
     console.log(cart);
   }
@@ -75,9 +82,14 @@ export default function Feed ({ url }) {
             </div>
           </Col>
           <Col>
-          <Form className="w-25 ms-auto" action="/accounts/logout" method="post" encType="multipart/form-data">
-            <Form.Control type="submit" name="logout" value="Logout" className="btn btn-danger"></Form.Control>
-          </Form>
+            <Badge badgeContent={cart.length} color="success">
+              <ShoppingCartCheckoutIcon color="action"/>
+            </Badge>
+          </Col>
+          <Col>
+            <Form action="/accounts/logout" method="post" encType="multipart/form-data">
+              <Form.Control type="submit" name="logout" value="Logout" className="btn btn-danger"></Form.Control>
+            </Form>
           </Col>
         </Container>
 

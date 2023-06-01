@@ -127,6 +127,7 @@ def get_item(itemid_url_slug):
       "created": item['created'],
       "available": item['available'],
       "imgUrl": "static/{}".format(item['filename']),
+      "name": item['name'],
       "likes": {
         "lognameLikesThis": logname_likes_this,
         "numLikes": len(likes),

@@ -30,6 +30,7 @@ export default function Item({ url, handleCart }) {
   const [newComment, setNewComment] = useState("");
   const [itemurl, setitemUrl] = useState("");
   const [inCart, setInCart] = useState(false);
+  const [name, setName] = useState("");
 
   useEffect(() => {
     // Declare a boolean flag that we can use to cancel the API request.
@@ -56,6 +57,7 @@ export default function Item({ url, handleCart }) {
           setOwnerImgUrl(data.ownerImgUrl);
           setOwnerShowUrl(data.ownerShowUrl);
           setitemUrl(data.itemShowUrl);
+          setName(data.name);
             
         }
       })
@@ -141,15 +143,15 @@ export default function Item({ url, handleCart }) {
     );
   }
   function added() {
-    handleCart(itemid);
-    setInCart(true);
+    handleCart(itemid, name, imgUrl);
+    setInCart(!inCart);
   }
   // Render item image and item owner
   return (
     <Container>
         <Row className="justify-content-md-center">
             <Card className="w-25 h-50">
-              <Button disabled={inCart} onClick={added} className="m-3"> 
+              <Button onClick={added} className="m-3"> 
               <FontAwesomeIcon icon={faCartShopping} /> {inCart ? "Added!" : "Add to Cart"}
               </Button>
                 <Card.Img variant="top" src={imgUrl} alt="item-image"/>

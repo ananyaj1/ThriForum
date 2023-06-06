@@ -10,7 +10,7 @@ import Form from "react-bootstrap/Form";
 import Badge from '@mui/material/Badge';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import Cart from "./cart";
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 // The parameter of this function is an object with a string called url inside it.
 // url is a prop for the item component.
 export default function Feed ({ url }) {
@@ -85,6 +85,7 @@ export default function Feed ({ url }) {
                   <a className="nav-item nav-link active" href="/"> Home <span className="sr-only"></span></a>
                   <a className="nav-item nav-link" href="/explore/">Explore</a>
                   <a className="nav-item nav-link" href={u}> {logname} </a>
+                  
                 </div>
             </div>
           </Col>

@@ -24,9 +24,10 @@ IMPLEMENTED:
 7. Make AJAX calls to REST API to get necessary data to render index page. 
 8. All item functionalities modified. 
 9. Add cart functionality 
+10. Navigation between Javascript rendered pages finished / fixed
+11. Cart page & functions (delete all, delete single, add) implemented 
 
 TODO: 
-1. Create checkout page 
 2. Create cookie session to save logname and cart contents. (Cart contents currently only exist in React state)
 3. Add payment functionality 
 4. Admin application 

@@ -31,6 +31,7 @@ export default function Item({ url, handleCart }) {
   const [itemurl, setitemUrl] = useState("");
   const [inCart, setInCart] = useState(false);
   const [name, setName] = useState("");
+  const [price, setPrice] = useState(0.0);
 
   useEffect(() => {
     // Declare a boolean flag that we can use to cancel the API request.
@@ -58,6 +59,7 @@ export default function Item({ url, handleCart }) {
           setOwnerShowUrl(data.ownerShowUrl);
           setitemUrl(data.itemShowUrl);
           setName(data.name);
+          setPrice(data.price);
             
         }
       })
@@ -143,7 +145,7 @@ export default function Item({ url, handleCart }) {
     );
   }
   function added() {
-    handleCart(itemid, name, imgUrl);
+    handleCart(itemid, name, imgUrl, price);
     setInCart(!inCart);
   }
   // Render item image and item owner
@@ -155,13 +157,16 @@ export default function Item({ url, handleCart }) {
               <FontAwesomeIcon icon={faCartShopping} /> {inCart ? "Added!" : "Add to Cart"}
               </Button>
                 <Card.Img variant="top" src={imgUrl} alt="item-image"/>
+                <Row className="justify-content-end">
+                <h6>${price}0</h6>
+                </Row>
                 <Card.Body>
                     <Row>
                         <Col>
                         <Image fluid rounded className="float-end profile-pic" src={ownerImgUrl}/>
                         </Col>
                         <Col md={6}>
-                            <a href={ownerShowUrl}> <p>{owner}</p> </a>
+                            <a href={ownerShowUrl}> <p>{owner} </p> </a>
                         </Col>
                         <Col>
                         <a href={itemurl}> <p>{moment.utc(created, "YYYY-MM-DD hh:mm:ss").fromNow()}</p> </a>

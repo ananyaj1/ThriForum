@@ -13,7 +13,7 @@ export default function Site({ }) {
         <div>
             <Routes>
                 <Route exact path="/*" element={<Feed url="/api/v1/posts/"/>}/>
-                <Route path="cart" element={<Cart/>}/>
+                <Route exact path="/cart" element={<Cart/>}/>
             </Routes>
         </div>
     );

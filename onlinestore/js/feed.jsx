@@ -50,13 +50,13 @@ export default function Feed ({ url }) {
     };
   }, [url]);
   // WHEN LIKE/UNLIKE BUTTON IS PRESSED, THIS IS HOW WE HANDLE IT
-  function handleCart(itemid, name, imgurl) {
+  function handleCart(itemid, name, imgurl, price) {
     if(cart.some(item => item.itemid == itemid)) {
       console.log('already in cart');
       setCart(cart.filter(c => c.itemid !== itemid));
     }
     else {
-      setCart([...cart, {'itemid': itemid, 'name': name, 'imgurl': imgurl}]);
+      setCart([...cart, {'itemid': itemid, 'name': name, 'imgurl': imgurl, 'price': price}]);
     }
     
     console.log(cart);
@@ -66,7 +66,7 @@ export default function Feed ({ url }) {
   const navigate = useNavigate();
 
   const navigateCart = () => {
-    navigate('/cart');
+    navigate('/cart', {state:{cart: cart, logname: logname}});
   }
   // Render item image and item owner
   return (

@@ -1,5 +1,7 @@
 # ThriForum
 
+Social media web application that gives thrift vendors a platform to showcase their pieces, find other vendors, and sell to customers. 
+
 PROJECT SETUP (MAC OS DIRECTIONS): 
 
 1. Git clone this repository on your local machine. 

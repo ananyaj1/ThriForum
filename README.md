@@ -1,6 +1,6 @@
 # ThriForum
 
-Social media web application that gives thrift vendors a platform to showcase their pieces, find other vendors, and sell to customers. STILL IN DEVELOPMENT MODE
+Social media web application that addresses inefficency of vendors displaying their collections. Gives thrift vendors a platform to showcase their pieces, find other vendors, and sell to customers. STILL IN DEVELOPMENT MODE
 
 PROJECT SETUP (MAC OS DIRECTIONS): 
 

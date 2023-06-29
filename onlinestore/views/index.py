@@ -11,6 +11,9 @@ import arrow
 @onlinestore.app.route('/')
 def show_index():
     """Display / route."""
+    """
+    random change for pull request
+    """
     if "logname" not in flask.session:
         return flask.redirect(flask.url_for('show_login'))
     logname = flask.session['logname']
